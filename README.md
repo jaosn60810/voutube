@@ -1,6 +1,6 @@
 # voutube
 
--[VueTube | YouTube Clone](https://youtu.be/M8vNKb_Yws4)
+[VueTube | YouTube Clone](https://youtu.be/M8vNKb_Yws4)
 
 ## Project setup
 ```
