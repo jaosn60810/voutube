@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib/framework'
-import '@/scss/index.scss'
-import '@/scss/variables.scss'
+import '../scss/index.scss'
+import '../scss/variables.scss'
 
 Vue.use(Vuetify)
 
