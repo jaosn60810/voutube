@@ -1,7 +1,16 @@
 <template>
   <div>
-    <v-app-bar dense dark color="primary" fixed flat height="56">
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    <v-app-bar
+      dense
+      dark
+      color="primary"
+      fixed
+      flat
+      height="56"
+      clipped-left
+      app
+    >
+      <v-app-bar-nav-icon @click="onClick"></v-app-bar-nav-icon>
 
       <v-btn text
         ><img
@@ -38,12 +47,31 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Searchbar from '@/components/Searchbar.vue'
 
 export default {
-  data: () => ({}),
+  data: () => ({
+    showFullDrawer: false,
+  }),
   components: {
     Searchbar,
+  },
+  computed: {
+    ...mapState({
+      toggleShowFullDrawer: (state, value) => (state.showFullDrawer = value),
+      toggleShowDrawer: (state, value) => (state.showDrawer = value),
+      toggleVideoIsPlaying: (state, value) => (state.videoIsPlaying = value),
+    }),
+  },
+  methods: {
+    onClick() {
+      if (this.videoIsPlaying) {
+        this.$store.commit('toggleShowDrawer', !this.showDrawer)
+      } else {
+        this.$store.commit('toggleShowFullDrawer', !this.showDrawer)
+      }
+    },
   },
 }
 </script>
