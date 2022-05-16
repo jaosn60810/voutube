@@ -12,7 +12,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-toolbar-title>Search bar</v-toolbar-title>
+      <Searchbar></Searchbar>
 
       <v-spacer></v-spacer>
 
@@ -38,7 +38,12 @@
 </template>
 
 <script>
+import Searchbar from '@/components/Searchbar.vue'
+
 export default {
   data: () => ({}),
+  components: {
+    Searchbar,
+  },
 }
 </script>
