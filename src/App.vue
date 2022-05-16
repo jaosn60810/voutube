@@ -1,8 +1,8 @@
 <template>
   <v-app dark>
-    <Sidebar></Sidebar>
-    <Navbar />
     <v-main>
+      <Navbar />
+
       <router-view></router-view>
     </v-main>
   </v-app>
@@ -10,14 +10,10 @@
 
 <script>
 import Navbar from '@/components/Navbar.vue'
-import Sidebar from '@/components/Sidebar.vue'
 
 export default {
   name: 'App',
-  components: {
-    Navbar,
-    Sidebar,
-  },
+  components: { Navbar },
   data: () => ({
     //
   }),

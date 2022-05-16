@@ -19,6 +19,9 @@
           width="160"
       /></v-btn>
 
+      <v-btn color="success" @click="play"
+        >isPlaying:{{ videoIsPlaying }}</v-btn
+      >
       <v-spacer></v-spacer>
 
       <Searchbar></Searchbar>
@@ -43,25 +46,26 @@
         </v-avatar>
       </v-btn>
     </v-app-bar>
+    <Sidebar />
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import Searchbar from '@/components/Searchbar.vue'
+import Sidebar from '@/components/Sidebar.vue'
 
 export default {
-  data: () => ({
-    showFullDrawer: false,
-  }),
+  data: () => ({}),
   components: {
     Searchbar,
+    Sidebar,
   },
   computed: {
     ...mapState({
-      toggleShowFullDrawer: (state, value) => (state.showFullDrawer = value),
-      toggleShowDrawer: (state, value) => (state.showDrawer = value),
-      toggleVideoIsPlaying: (state, value) => (state.videoIsPlaying = value),
+      showMiniDrawer: state => state.youtube.showMiniDrawer,
+      showDrawer: state => state.youtube.showDrawer,
+      videoIsPlaying: state => state.youtube.videoIsPlaying,
     }),
   },
   methods: {
@@ -69,7 +73,17 @@ export default {
       if (this.videoIsPlaying) {
         this.$store.commit('toggleShowDrawer', !this.showDrawer)
       } else {
-        this.$store.commit('toggleShowFullDrawer', !this.showDrawer)
+        this.$store.commit('toggleShowMiniDrawer', !this.showMiniDrawer)
+      }
+    },
+    play() {
+      this.$store.commit('toggleVideoIsPlaying', !this.videoIsPlaying)
+      if (this.videoIsPlaying) {
+        this.$store.commit('toggleShowDrawer', false)
+        this.$store.commit('toggleShowMiniDrawer', false)
+      } else {
+        this.$store.commit('toggleShowDrawer', true)
+        this.$store.commit('toggleShowMiniDrawer', true)
       }
     },
   },

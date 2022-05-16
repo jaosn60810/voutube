@@ -1,6 +1,6 @@
 const state = {
   showDrawer: true,
-  showFullDrawer: false,
+  showMiniDrawer: true,
   videoIsPlaying: false,
 }
 
@@ -9,9 +9,9 @@ const getters = {}
 const actions = {}
 
 const mutations = {
-  toggleShowFullDrawer: (state, value) => (state.showFullDrawer = value),
-  toggleShowDrawer: (state, value) => (state.showDrawer = value),
-  toggleVideoIsPlaying: (state, value) => (state.videoIsPlaying = value),
+  toggleShowMiniDrawer: (state, val) => (state.showMiniDrawer = val),
+  toggleShowDrawer: (state, val) => (state.showDrawer = val),
+  toggleVideoIsPlaying: (state, val) => (state.videoIsPlaying = val),
 }
 
 export default {

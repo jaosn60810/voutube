@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer
     :temporary="videoIsPlaying"
-    :mini-variant.sync="showFullDrawer"
+    :mini-variant.sync="showMiniDrawer"
     class="scroller"
     dark
     clipped
@@ -11,8 +11,8 @@
     v-model="showDrawer"
     mini-variant-width="72"
   >
-    <v-list :dense="!showFullDrawer" class="scroller test">
-      <div class="youtube-brand-header" v-if="videoIsPlaying">
+    <v-list :dense="!showMiniDrawer" class="scroller test">
+      <div class="youtube-brand-header" @click="onclick" v-if="videoIsPlaying">
         <v-list-item link class="px-5-5">
           <v-list-item-icon><v-icon>mdi-menu</v-icon></v-list-item-icon>
           <v-list-item-content>
@@ -56,10 +56,10 @@
           </v-list-item-content>
         </v-list-item>
       </div>
-      <v-divider v-if="!showFullDrawer" />
+      <v-divider v-if="!showMiniDrawer" />
 
       <div class="py-3">
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-play-box-multiple</v-icon>
           </v-list-item-icon>
@@ -69,7 +69,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-history</v-icon>
           </v-list-item-icon>
@@ -79,7 +79,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-play-box-outline</v-icon>
           </v-list-item-icon>
@@ -89,7 +89,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-clock</v-icon>
           </v-list-item-icon>
@@ -99,7 +99,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-thumb-up</v-icon>
           </v-list-item-icon>
@@ -109,10 +109,10 @@
           </v-list-item-content>
         </v-list-item>
       </div>
-      <v-divider v-if="!showFullDrawer" />
+      <v-divider v-if="!showMiniDrawer" />
 
       <div class="py-3">
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">REE</v-icon>
           </v-list-item-icon>
@@ -121,7 +121,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-plus-circle</v-icon>
           </v-list-item-icon>
@@ -131,10 +131,10 @@
         </v-list-item>
       </div>
 
-      <v-divider v-if="!showFullDrawer"></v-divider>
+      <v-divider v-if="!showMiniDrawer"></v-divider>
 
       <div class="py-3">
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-youtube</v-icon>
           </v-list-item-icon>
@@ -143,7 +143,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-filmstrip</v-icon>
           </v-list-item-icon>
@@ -152,7 +152,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-youtube-gaming</v-icon>
           </v-list-item-icon>
@@ -161,7 +161,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-access-point</v-icon>
           </v-list-item-icon>
@@ -170,7 +170,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-hanger</v-icon>
           </v-list-item-icon>
@@ -180,10 +180,10 @@
         </v-list-item>
       </div>
 
-      <v-divider v-if="!showFullDrawer"></v-divider>
+      <v-divider v-if="!showMiniDrawer"></v-divider>
 
       <div class="py-3">
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-cog</v-icon>
           </v-list-item-icon>
@@ -192,7 +192,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-flag</v-icon>
           </v-list-item-icon>
@@ -201,7 +201,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-help-circle</v-icon>
           </v-list-item-icon>
@@ -210,7 +210,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link v-if="!showFullDrawer" class="px-5-5">
+        <v-list-item link v-if="!showMiniDrawer" class="px-5-5">
           <v-list-item-icon>
             <v-icon dark color="subtitle">mdi-message-alert</v-icon>
           </v-list-item-icon>
@@ -231,7 +231,6 @@ export default {
   computed: {
     ...mapState({
       videoIsPlaying: state => state.youtube.videoIsPlaying,
-      showFullDrawer: state => state.youtube.showFullDrawer,
     }),
 
     showDrawer: {
@@ -242,13 +241,18 @@ export default {
         this.$store.commit('toggleShowDrawer', value)
       },
     },
-    showFullDrawer: {
+    showMiniDrawer: {
       get() {
-        return this.$store.state.youtube.showFullDrawer
+        return this.$store.state.youtube.showMiniDrawer
       },
       set(value) {
-        this.$store.commit('toggleShowFullDrawer', value)
+        this.$store.commit('toggleShowMiniDrawer', value)
       },
+    },
+  },
+  methods: {
+    onclick() {
+      this.$store.commit('toggleShowDrawer', false)
     },
   },
 }
